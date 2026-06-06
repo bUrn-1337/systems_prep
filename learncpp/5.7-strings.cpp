@@ -24,3 +24,32 @@ int main()
 //std::string::length() returns an unsigned integral value (most likely of type size_t). If you want to assign the length to an int variable, you should static_cast it to avoid compiler warnings about signed/unsigned conversions:
 
 int length { static_cast<int>(name.length()) };
+
+#include <iostream>
+#include <string> // for std::string
+
+int main()
+{
+    using namespace std::string_literals; // easy access to the s suffix
+
+    std::cout << "foo\n";   // no suffix is a C-style string literal
+    std::cout << "goo\n"s;  // s suffix is a std::string literal
+
+    return 0;
+}
+
+
+
+#include <iostream>
+#include <string>
+
+int main()
+{
+    using namespace std::string_literals;
+
+    constexpr std::string name{ "Alex"s }; // compile error
+
+    std::cout << "My name is: " << name;
+
+    return 0;
+}
