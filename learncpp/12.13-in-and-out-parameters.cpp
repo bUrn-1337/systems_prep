@@ -1,0 +1,2 @@
+//Parameters that are used only for receiving input from the caller are sometimes called in parameters.
+//A function parameter that is used only for the purpose of returning information back to the caller is called an out parameter.
