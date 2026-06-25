@@ -26,3 +26,23 @@ constexpr std::array<House, 3> houses { // initializer for houses
         { 15, 3, 40 }, // initializer for array element 2
      }
 };
+
+
+//However, aggregates in C++ support a concept called brace elision, which lays out some rules 
+//for when multiple braces may be omitted. Generally, you can omit braces when initializing a 
+//std::array with scalar (single) values, or when initializing with class types or arrays 
+//where the type is explicitly named with each element.
+
+
+#include <array>
+#include <iostream>
+
+int main()
+{
+    constexpr std::array<int, 5> arr {{ 1, 2, 3, 4, 5 }}; // double braces
+    //here single braces will work too
+    for (const auto n : arr)
+        std::cout << n << '\n';
+
+    return 0;
+}
